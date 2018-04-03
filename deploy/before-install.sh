@@ -1,2 +1,6 @@
 #!/bin/sh
-kill -9 $(ps | grep "node" | grep -v grep | awk '{ print $1 }')
+PID=`ps -eaf | grep "node" | grep -v grep | awk '{print $2}'`
+if [[ "" !=  "$PID" ]]; then
+  echo "killing $PID"
+  kill -9 $PID
+fi
