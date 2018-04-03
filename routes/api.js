@@ -4,7 +4,7 @@ var router = express.Router();
 
 //Routes
 router.get('/products',function(req,res){
-	res.send('Your API is working!');
+	res.send('Your API is Awesome!!');
 });
 
 router.get('/myname/:name',function(req,res){
