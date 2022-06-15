@@ -1,24 +1,22 @@
 //Dependencies
 var express = require('express');
-var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-
-//MongoDB
-//mongoose.connect('mongodb://localhost/rest_test');
+const port = 3000;
 
 //Express 
 var app = express();
-app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
 //routes
-app.use('/api',require('./routes/api'));
+app.use('/api/v1', require('./routes/api'));
 
-/*app.get('/',function(req,res){
-	res.send('working');
-});*/
+//test app
+app.get('/', function (req, res) {
+	res.send('App is working');
+});
 
 //start server
-app.listen(3000);
-console.log('API is running in port 3000');
+app.listen(port, (req, res) => {
+	console.log(`API is running on port ${port}`);
+});
